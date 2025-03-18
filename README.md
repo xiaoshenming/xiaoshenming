@@ -48,7 +48,7 @@
 
 ## 联系我
 
-- **Email：** [example@example.com](mailto:example@example.com)  
+- **Email：** [1181584752@qq.com](mailto:1181584752@qq.com)  
 - **博客：** [我的博客](http://example.com)  
 - **社交媒体：**  
   - [微博](http://weibo.com)  
@@ -57,7 +57,7 @@
 ---
 
 > “每一次努力都不会白费，每一段经历都值得铭记。”  
-> —— 肖申明
+> —— xiaoshenming
 
 ---
 
