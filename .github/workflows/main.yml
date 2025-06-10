@@ -2,26 +2,39 @@ name: Generate Snake
 
 on:
   schedule:
-    - cron: "0 0 * * *" # Runs every day at midnight UTC
-  workflow_dispatch:
+    - cron: "0 0 * * *" # 每天 UTC 时间午夜运行一次
+  workflow_dispatch: # 允许手动触发运行
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: Platane/snk@master
+      - uses: actions/checkout@v4 # 推荐使用最新稳定版本，确保兼容性
+
+      - uses: Platane/snk@v3 # 使用 snk 的 v3 版本
         id: snake-gif
         with:
-          github_user_name: xiaoshenming
+          # 从当前仓库的所有者（即你的 GitHub 用户名）读取贡献图
+          github_user_name: ${{ github.repository_owner }}
+
+          # 要生成的文件列表。每行一个文件。
+          # 每个输出都可以使用查询字符串参数进行自定义。
+          # 
+          # 支持的选项 (更多请参考 Platane/snk 官方文档):
+          # - palette:     预设颜色方案，例如 [github, github-dark, github-light]
+          # - color_snake: 蛇的颜色
+          # - color_dots:  逗号分隔的点颜色列表。
+          #                第一个代表 0 贡献，然后从低到高依次填充。期望有 5 种颜色。
           outputs: |
-            dist/github-contribution-grid-snake.svg
-            dist/github-contribution-grid-snake-dark.svg?palette=github-dark
+            dist/github-snake.svg                                # 默认浅色模式 SVG
+            dist/github-snake-dark.svg?palette=github-dark       # 暗色模式 SVG
+            dist/ocean.gif?color_snake=orange&color_dots=#bfd6f6,#8dbdff,#64a1f4,#4b91f1,#3c7dd9 # 一个自定义颜色的 GIF 示例
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - uses: crazy-max/ghaction-github-pages@v2
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # GitHub 自动提供的令牌，用于访问 GitHub API
+
+      - uses: crazy-max/ghaction-github-pages@v4 # 推荐使用最新稳定版本
         with:
-          target_branch: output
-          build_dir: dist
+          target_branch: output # 将生成的文件推送到 'output' 分支
+          build_dir: dist       # 'dist' 目录中包含生成的文件
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # GitHub 自动提供的令牌，用于推送文件
