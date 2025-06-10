@@ -72,7 +72,14 @@
   <p>每天都在成长，代码是我的日记本！每一个彩色方块都是一份坚持与热爱。💖</p>
   <img src="https://ghchart.rshah.org/xiaoshenming" alt="GitHub Contribution Chart" width="90%" style="border-radius: 15px; box-shadow: 0 8px 25px rgba(135, 206, 250, 0.5);">
 </div>
-
+<div align="center">
+  <p>看，我的代码足迹化作了一条贪吃蛇！每一个方块都是它的食粮！🐍✨</p>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/xiaoshenming/xiaoshenming/output/github-contribution-grid-snake-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/xiaoshenming/xiaoshenming/output/github-contribution-grid-snake.svg">
+    <img alt="github contribution grid snake" src="https://raw.githubusercontent.com/xiaoshenming/xiaoshenming/output/github-contribution-grid-snake.svg" width="90%" style="border-radius: 15px; box-shadow: 0 8px 25px rgba(135, 206, 250, 0.5);">
+  </picture>
+</div>
 ---
 
 ### 🌟 亮点项目：我的创造力结晶 🎨
